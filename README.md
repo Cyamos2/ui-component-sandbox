@@ -14,8 +14,7 @@ This repo consolidates small UI experiments I built while maintaining my portfol
 ---
 
 ## 🔗 Live Demo
-- (Add after enabling GitHub Pages)  
-  `https://<your-username>.github.io/ui-component-sandbox/`
+- https://github.com/Cyamos2/ui-component-sandbox.git
 
 ---
 
