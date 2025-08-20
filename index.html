@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI Component Sandbox</title>
+  <meta name="description" content="Accessible UI component sandbox: forms, modal, accordion, cards, gallery, dark mode.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav aria-label="Primary">
+      <h1 class="site-title">UI Component Sandbox</h1>
+      <ul class="nav">
+        <li><a href="#form">Form</a></li>
+        <li><a href="#modal">Modal</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#accordion">Accordion</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </nav>
+    <button id="themeToggle" aria-pressed="false" class="btn">Toggle dark mode</button>
+  </header>
+
+  <main id="main" class="container">
+    <section id="form" class="block">
+      <h2>Accessible Form with Client-side Validation</h2>
+      <p>A small demo of labels, described-by messages, and submit-time validation.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" required aria-describedby="nameHelp nameErr" />
+          <div id="nameHelp" class="help">Enter your full name.</div>
+          <div id="nameErr" class="error" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" required aria-describedby="emailHelp emailErr" />
+          <div id="emailHelp" class="help">We will only use this to contact you about this request.</div>
+          <div id="emailErr" class="error" aria-live="polite"></div>
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" aria-describedby="catHelp">
+            <option value="">Select...</option>
+            <option>General</option>
+            <option>Bug</option>
+            <option>Feature</option>
+          </select>
+          <div id="catHelp" class="help">Optional, helps with triage.</div>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" aria-describedby="msgHelp"></textarea>
+          <div id="msgHelp" class="help">Add any details we should know.</div>
+        </div>
+
+        <button class="btn" type="submit">Submit</button>
+        <div id="formStatus" class="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section id="modal" class="block">
+      <h2>Modal Dialog</h2>
+      <button id="openModal" class="btn">Open modal</button>
+
+      <div id="dialog" class="modal" role="dialog" aria-modal="true" aria-labelledby="dialogTitle" hidden>
+        <div class="modal__panel">
+          <h3 id="dialogTitle">Example Modal</h3>
+          <p>This is a basic modal. Press <kbd>Esc</kbd> to close or use the buttons.</p>
+          <div class="modal__actions">
+            <button id="closeModal" class="btn btn-secondary">Close</button>
+            <button class="btn">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cards" class="block">
+      <h2>Card Grid</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Card One</h3>
+          <p>Short description for a reusable card component.</p>
+          <a href="#" class="btn btn-link">Learn more</a>
+        </article>
+        <article class="card">
+          <h3>Card Two</h3>
+          <p>Cards use spacing tokens and a consistent heading scale.</p>
+          <a href="#" class="btn btn-link">Learn more</a>
+        </article>
+        <article class="card">
+          <h3>Card Three</h3>
+          <p>They collapse to a single column on narrow screens.</p>
+          <a href="#" class="btn btn-link">Learn more</a>
+        </article>
+        <article class="card">
+          <h3>Card Four</h3>
+          <p>And expand to multiple columns on larger screens.</p>
+          <a href="#" class="btn btn-link">Learn more</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="accordion" class="block">
+      <h2>Accordion (details/summary)</h2>
+      <details>
+        <summary>What is progressive enhancement?</summary>
+        <div class="details-body">
+          Start simple, then layer on JS/CSS for richer experiences on capable devices.
+        </div>
+      </details>
+      <details>
+        <summary>What is accessibility (a11y)?</summary>
+        <div class="details-body">
+          Designing so people with diverse abilities can use your product effectively.
+        </div>
+      </details>
+    </section>
+
+    <section id="gallery" class="block">
+      <h2>Image Gallery (keyboard friendly)</h2>
+      <div class="gallery">
+        <figure class="gallery__item" data-index="0" aria-label="Image 1 of 3">
+          <img src="https://via.placeholder.com/600x360?text=Image+1" alt="Sample image 1">
+          <figcaption>Sample image 1</figcaption>
+        </figure>
+        <figure class="gallery__item" data-index="1" aria-label="Image 2 of 3" hidden>
+          <img src="https://via.placeholder.com/600x360?text=Image+2" alt="Sample image 2">
+          <figcaption>Sample image 2</figcaption>
+        </figure>
+        <figure class="gallery__item" data-index="2" aria-label="Image 3 of 3" hidden>
+          <img src="https://via.placeholder.com/600x360?text=Image+3" alt="Sample image 3">
+          <figcaption>Sample image 3</figcaption>
+        </figure>
+      </div>
+      <div class="gallery__controls">
+        <button id="prev" class="btn btn-secondary" aria-label="Previous image">Prev</button>
+        <button id="next" class="btn" aria-label="Next image">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© UI Component Sandbox</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
